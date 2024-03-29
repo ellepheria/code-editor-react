@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import cls from './CodeBar.module.scss';
+import HtmlEditor from '../Editor/HTMLEditor.tsx';
+import CssEditor from '../Editor/CSSEditor.tsx';
+import JsEditor from '../Editor/JSEditor.tsx';
 
 interface CodeBarProps {
     className?: string;
@@ -33,7 +36,11 @@ const CodeBar = ({ className }: CodeBarProps) => {
                     JS
                 </button>
             </nav>
-
+            <div className={cls.editor}>
+                {activeTab === 'HTML' ? (<HtmlEditor />) : null}
+                {activeTab === 'CSS' ? (<CssEditor />) : null}
+                {activeTab === 'JS' ? (<JsEditor />) : null}
+            </div>
         </div>
     );
 };
